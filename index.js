@@ -27,6 +27,15 @@ program
 
 args = program.args
 
+var lib = require('./lib');
+
+var asCommand = !module.parent;
+
+if (asCommand === false) {
+    module.exports = lib;
+    return;
+}
+
 if (!args.length) {
     winston.error('Host required');
     process.exit(1);
@@ -40,8 +49,6 @@ var host = input[1];
 var username = account.split(':')[0]
 var password = account.split(':')[1]
 
-var lib = require('./lib');
-
 var options = {
     host: host,
     username: username,
@@ -51,5 +58,3 @@ var options = {
 }
 
 lib(options, function() {});
-
-module.exports = lib;
