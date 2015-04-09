@@ -51,3 +51,5 @@ var options = {
 }
 
 lib(options, function() {});
+
+module.exports = lib;
