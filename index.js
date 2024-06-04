@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 var package = require('./package.json');
 var program = require('commander');
-var fs = require('fs');
 var winston = require('winston');
 var moment = require('moment');
 
